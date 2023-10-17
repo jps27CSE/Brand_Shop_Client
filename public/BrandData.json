@@ -1,0 +1,64 @@
+{
+  "brands": [
+    {
+      "id": "1",
+      "brand_name": "Apple",
+      "brand_logo": "https://i.ibb.co/m04mWBh/1511456315-653-apple-preview.jpg",
+      "advertisement_slides": [
+        "apple_slide1.png",
+        "apple_slide2.png",
+        "apple_slide3.png"
+      ]
+    },
+    {
+      "id": "2",
+      "brand_name": "Lenovo",
+      "brand_logo": "https://i.ibb.co/xMvGGqz/lenovo-logo-vector-format-available-illustrator-ai-149074793.webp",
+      "advertisement_slides": [
+        "lenovo_slide1.png",
+        "lenovo_slide2.png",
+        "lenovo_slide3.png"
+      ]
+    },
+    {
+      "id": "3",
+      "brand_name": "HP",
+      "brand_logo": "https://i.ibb.co/CWcCGCk/Logo-1-do.jpg",
+      "advertisement_slides": [
+        "hp_slide1.png",
+        "hp_slide2.png",
+        "hp_slide3.png"
+      ]
+    },
+    {
+      "id": "4",
+      "brand_name": "Xiaomi",
+      "brand_logo": "https://i.ibb.co/yY3SrLr/xiaomi-brand-logo-phone-symbol-with-name-black-design-chinese-mobile-illustration-free-vector.jpg",
+      "advertisement_slides": [
+        "xiaomi_slide1.png",
+        "xiaomi_slide2.png",
+        "xiaomi_slide3.png"
+      ]
+    },
+    {
+      "id": "5",
+      "brand_name": "Walton",
+      "brand_logo": "https://i.ibb.co/HF1jVSb/walton.jpg",
+      "advertisement_slides": [
+        "walton_slide1.png",
+        "walton_slide2.png",
+        "walton_slide3.png"
+      ]
+    },
+    {
+      "id": "6",
+      "brand_name": "Asus",
+      "brand_logo": "https://i.ibb.co/drYWKjX/asus2.jpg",
+      "advertisement_slides": [
+        "asus_slide1.png",
+        "asus_slide2.png",
+        "asus_slide3.png"
+      ]
+    }
+  ]
+}
