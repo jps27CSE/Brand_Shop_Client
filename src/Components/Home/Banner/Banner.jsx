@@ -2,7 +2,7 @@ import BannerPic from "../../../assets/banner.jpg";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto ">
       <div
         className="hero  h-3"
         style={{

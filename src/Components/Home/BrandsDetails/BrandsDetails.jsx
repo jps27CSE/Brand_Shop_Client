@@ -11,25 +11,27 @@ const BrandsDetails = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5  ml-[-10px] md:ml-32 lg:ml-0">
-      {brands.map((brand) => (
-        <Link key={brand.id} to={`/brand/${brand.brand_name}`}>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl h-[300px]">
-            <figure>
-              <img
-                className="w-[220px] h-[150px]"
-                src={brand.brand_logo}
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="font-bold text-4xl text-center text-cyan-700">
-                {brand.brand_name}
-              </h2>
+    <div className="max-w-7xl mx-auto ">
+      <div className="  grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5  ml-[-10px] md:ml-32 lg:ml-0 mb-5 ">
+        {brands.map((brand) => (
+          <Link key={brand.id} to={`/brand/${brand.brand_name}`}>
+            <div className="card card-compact w-96 bg-base-100 shadow-xl h-[300px]">
+              <figure>
+                <img
+                  className="w-[220px] h-[150px]"
+                  src={brand.brand_logo}
+                  alt="Shoes"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="font-bold text-4xl text-center text-cyan-700">
+                  {brand.brand_name}
+                </h2>
+              </div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
