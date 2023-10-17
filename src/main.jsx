@@ -10,6 +10,7 @@ import IndividualBrand from "./Components/Home/BrandsDetails/IndividualBrand/Ind
 import Login from "./Components/Login/Login.jsx";
 import Register from "./Components/Register/Register.jsx";
 import AuthProvider from "./AuthProvider/AuthProvider.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,11 +20,19 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       {
         path: "/addProduct",
-        element: <AddProduct />,
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/brand/:id",
