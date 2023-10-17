@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const BrandsDetails = () => {
+  const { themeMode } = useContext(AuthContext);
   const [brands, setBrands] = useState([]);
   console.log(brands);
   useEffect(() => {
@@ -15,10 +17,14 @@ const BrandsDetails = () => {
       <div className="  grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5  ml-[-10px] md:ml-32 lg:ml-0 mb-5 ">
         {brands.map((brand) => (
           <Link key={brand.id} to={`/brand/${brand.brand_name}`}>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl h-[300px]">
+            <div
+              className={`card card-compact w-96 bg-base-100 shadow-xl h-[300px] ${
+                themeMode ? "dark:bg-slate-600" : ""
+              }`}
+            >
               <figure>
                 <img
-                  className="w-[220px] h-[150px]"
+                  className="w-[220px] h-[150px] pt-5"
                   src={brand.brand_logo}
                   alt="Shoes"
                 />

@@ -14,7 +14,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [themeMode, setThemeMode] = useState("light");
+  const [themeMode, setThemeMode] = useState(true);
   const [loading, setLoading] = useState(true);
   const GoogleProvider = new GoogleAuthProvider();
 
