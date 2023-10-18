@@ -1,7 +1,20 @@
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
-const CartItems = ({ cart }) => {
-  console.log(cart);
+const CartItems = ({ cart, cartItems, setCartItems }) => {
+  const handleClick = () => {
+    fetch(`http://localhost:3000/cart/${cart._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const remaining = cartItems.filter((item) => item._id !== cart._id);
+          setCartItems(remaining);
+          toast.success("Removed From Cart");
+        }
+      });
+  };
 
   return (
     <div
@@ -15,7 +28,9 @@ const CartItems = ({ cart }) => {
         <h1 className="text-xl font-bold p-5">{cart?.name}</h1>
         <h1 className="text-xl font-bold p-5">Price: {cart?.price}</h1>
       </div>
-      <button className="btn btn-accent m-5">Delete</button>
+      <button onClick={handleClick} className="btn btn-accent m-5">
+        Delete
+      </button>
     </div>
   );
 };
@@ -24,4 +39,6 @@ export default CartItems;
 
 CartItems.propTypes = {
   cart: PropTypes.object,
+  cartItems: PropTypes.array,
+  setCartItems: PropTypes.func,
 };

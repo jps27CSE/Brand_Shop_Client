@@ -21,7 +21,12 @@ const Cart = () => {
       <div className="grid grid-cols-3">
         <div className="col-span-2">
           {cartItems?.map((item) => (
-            <CartItems key={item._id} cart={item} />
+            <CartItems
+              key={item._id}
+              cart={item}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
           ))}
         </div>
         <div className="col-span-1"></div>
