@@ -1,59 +1,45 @@
+import { useEffect, useState } from "react";
+
 const AllProducts = () => {
+  const [allData, setAllData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/allProducts")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setAllData(data);
+        }
+      });
+  }, []);
+
+  console.log(allData);
+
   return (
     <div className="max-w-7xl mx-auto mt-10 mb-5">
       <h1 className="text-4xl font-bold mb-5">All Products</h1>
       <div className="grid grid-cols-3 gap-5">
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src="" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
+        {allData.map((data) => (
+          <div
+            className="card card-compact w-96 bg-base-100 shadow-xl"
+            key={data._id}
+          >
+            <figure>
+              <img src={data?.image} alt="Shoes" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{data?.name}</h2>
+              <p className="font-bold">
+                Brand: <span className="text-blue-500">{data?.brand}</span>
+              </p>
+              <p className="font-bold">
+                Price: <span className="text-green-500">{data?.price}</span> TK
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src="" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src="" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src="" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
