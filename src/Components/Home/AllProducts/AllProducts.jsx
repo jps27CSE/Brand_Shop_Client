@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AllProducts = () => {
   const [allData, setAllData] = useState([]);
@@ -33,9 +34,11 @@ const AllProducts = () => {
                 Price: <span className="text-green-500">{data?.price}</span> TK
               </p>
               <div className="card-actions justify-end">
-                <button className="btn bg-[#3876BF] text-white hover:text-black">
-                  Details
-                </button>
+                <Link to={`/product/${data._id}`}>
+                  <button className="btn bg-[#3876BF] text-white hover:text-black">
+                    Details
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
