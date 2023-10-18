@@ -1,19 +1,29 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import IndiProducts from "./IndiProducts/IndiProducts";
 
 const IndividualBrand = () => {
   const [data, setData] = useState([]);
+  const [IndiProduct, setIndiProduct] = useState([]);
   const params = useParams();
 
   useEffect(() => {
+    fetch(`http://localhost:3000/brand/${params.id.toLowerCase()}`)
+      .then((res) => res.json())
+      .then((item) => setIndiProduct(item));
+  }, [params.id]);
+  console.log(IndiProduct);
+  useEffect(() => {
     fetch("/BrandData.json")
       .then((res) => res.json())
-      .then((item) => setData(item.brands));
+      .then((item) => {
+        if (item) {
+          setData(item.brands);
+        }
+      });
   }, []);
 
   const filter = data.filter((item) => item.brand_name === params.id);
-  console.log(filter);
-
   return (
     <div className="max-w-7xl mx-auto">
       <div className="carousel h-[500px]">
@@ -47,6 +57,20 @@ const IndividualBrand = () => {
               </a>
             </div>
           </div>
+        ))}
+      </div>
+
+      <h1 className="text-4xl font-bold text-center mt-5">
+        Welcome To <span className="text-[#64CCC5]">{params.id}</span> EcoSystem
+      </h1>
+
+      <div>
+        <h1 className="text-4xl font-bold  mt-10">Products</h1>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
+        {IndiProduct.map((prod) => (
+          <IndiProducts product={prod} key={prod._id} />
         ))}
       </div>
     </div>

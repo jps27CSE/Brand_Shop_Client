@@ -5,7 +5,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const BrandsDetails = () => {
   const { themeMode } = useContext(AuthContext);
   const [brands, setBrands] = useState([]);
-  console.log(brands);
+
   useEffect(() => {
     fetch("/BrandData.json")
       .then((res) => res.json())

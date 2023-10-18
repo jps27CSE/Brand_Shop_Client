@@ -15,10 +15,12 @@ const AddProduct = () => {
     const description = form.description.value;
     const rating = form.rating.value;
 
+    const smallerBrand = brand.toLowerCase();
+
     const NewProduct = {
       image,
       name,
-      brand,
+      brand: smallerBrand,
       type,
       price,
       description,

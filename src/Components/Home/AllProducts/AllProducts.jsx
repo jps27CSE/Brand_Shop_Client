@@ -12,12 +12,10 @@ const AllProducts = () => {
       });
   }, []);
 
-  console.log(allData);
-
   return (
     <div className="max-w-7xl mx-auto mt-10 mb-5">
       <h1 className="text-4xl font-bold mb-5">All Products</h1>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid  grid-cols-1 lg:grid-cols-3 gap-5">
         {allData.map((data) => (
           <div
             className="card card-compact w-96 bg-base-100 shadow-xl"
@@ -35,7 +33,9 @@ const AllProducts = () => {
                 Price: <span className="text-green-500">{data?.price}</span> TK
               </p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+                <button className="btn bg-[#3876BF] text-white hover:text-black">
+                  Details
+                </button>
               </div>
             </div>
           </div>
