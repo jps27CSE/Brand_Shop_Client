@@ -17,20 +17,19 @@ const CartItems = ({ cart, cartItems, setCartItems }) => {
   };
 
   return (
-    <div
-      className=" flex flex-row
-    mt-5 mb-5 rounded-lg shadow-2xl w-[500px] h-[200px]"
-    >
-      <div>
-        <img className="w-[300px] h-[200px]" src={cart.image} alt="" />
+    <div className="card card-compact w-96 bg-base-100 mb-2 shadow-xl">
+      <figure>
+        <img className="w-[150px]" src={cart?.image} alt="Shoes" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{cart?.name}</h2>
+        <p>Price: {cart?.price}</p>
+        <div className="card-actions justify-end">
+          <button onClick={handleClick} className="btn btn-accent">
+            Delete
+          </button>
+        </div>
       </div>
-      <div>
-        <h1 className="text-xl font-bold p-5">{cart?.name}</h1>
-        <h1 className="text-xl font-bold p-5">Price: {cart?.price}</h1>
-      </div>
-      <button onClick={handleClick} className="btn btn-accent m-5">
-        Delete
-      </button>
     </div>
   );
 };
