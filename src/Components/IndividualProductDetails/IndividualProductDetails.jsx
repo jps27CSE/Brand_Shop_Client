@@ -19,7 +19,17 @@ const IndividualProductDetails = () => {
   }, [params.id]);
 
   const handleAddCart = () => {
-    const sendingData = { email: user?.email, productId: params.id };
+    const sendingData = {
+      email: user?.email,
+      id: fetchData._id,
+      image: fetchData.image,
+      name: fetchData.name,
+      brand: fetchData.brand,
+      type: fetchData.type,
+      price: fetchData.price,
+      description: fetchData.description,
+      rating: fetchData.rating,
+    };
 
     fetch(`http://localhost:3000/cart`, {
       method: "POST",
