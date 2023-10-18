@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UpdateProductLogo from "../../assets/updateProduct.png";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -6,7 +6,6 @@ const UpdateProduct = () => {
   const [product, setProduct] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     fetch(`http://localhost:3000/product/${params.id}`)

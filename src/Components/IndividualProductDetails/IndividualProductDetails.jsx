@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const IndividualProductDetails = () => {
   const [fetchData, setFetchData] = useState(null);
+  const { user } = useContext(AuthContext);
   const params = useParams();
-  console.log(params.id);
 
   useEffect(() => {
     fetch(`http://localhost:3000/product/${params.id}`)
@@ -15,6 +17,24 @@ const IndividualProductDetails = () => {
         }
       });
   }, [params.id]);
+
+  const handleAddCart = () => {
+    const sendingData = { email: user?.email, productId: params.id };
+
+    fetch(`http://localhost:3000/cart`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(sendingData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged === true) {
+          toast.success("Product Added to Cart Successfully");
+        }
+      });
+  };
 
   return (
     <div className="max-w-7xl mx-auto mb-60 mt-10">
@@ -42,7 +62,10 @@ const IndividualProductDetails = () => {
             TK
           </p>
         </div>
-        <button className="btn btn-primary mt-5  ml-28 md:ml-0 lg:ml-0">
+        <button
+          onClick={handleAddCart}
+          className="btn btn-primary mt-5  ml-28 md:ml-0 lg:ml-0"
+        >
           Add to Cart
         </button>
       </div>
