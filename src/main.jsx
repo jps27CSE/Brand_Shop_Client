@@ -13,11 +13,13 @@ import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import IndividualProductDetails from "./Components/IndividualProductDetails/IndividualProductDetails.jsx";
 import UpdateProduct from "./Components/UpdateProduct/UpdateProduct.jsx";
+import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
       {
