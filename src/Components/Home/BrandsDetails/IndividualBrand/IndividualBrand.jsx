@@ -13,7 +13,6 @@ const IndividualBrand = () => {
       .then((res) => res.json())
       .then((item) => setIndiProduct(item));
   }, [params.id]);
-  console.log(IndiProduct);
   useEffect(() => {
     fetch("/BrandData.json")
       .then((res) => res.json())
@@ -70,14 +69,25 @@ const IndividualBrand = () => {
       </h1>
 
       <div>
-        <h1 className="text-4xl font-bold  mt-10">Products</h1>
+        {IndiProduct.length > 0 && (
+          <h1 className="text-4xl font-bold  mt-10">Products</h1>
+        )}
       </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
-        {IndiProduct.map((prod) => (
-          <IndiProducts product={prod} key={prod._id} />
-        ))}
-      </div>
+      {IndiProduct.length === 0 ? (
+        <p
+          className={`text-center text-4xl mt-10 mb-10  ${
+            themeMode ? "text-white" : ""
+          } `}
+        >
+          ... No Products Available ...
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
+          {IndiProduct.map((prod) => (
+            <IndiProducts product={prod} key={prod._id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

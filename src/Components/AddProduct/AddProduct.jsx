@@ -146,6 +146,7 @@ const AddProduct = () => {
                   name="rating"
                   placeholder="Rating"
                   className="input input-bordered"
+                  max={10}
                   required
                 />
               </div>
