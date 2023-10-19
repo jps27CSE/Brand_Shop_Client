@@ -71,7 +71,7 @@ const Navbar = () => {
           </div>
           <img className="w-[40px]" src={Brandlogo} alt="" />
           <a
-            className={`btn btn-ghost normal-case text-xl ${
+            className={`btn btn-ghost normal-case text-sm md:text-xl lg:text-xl ${
               themeMode ? "text-white" : ""
             }`}
           >
@@ -82,6 +82,28 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
+          {user && (
+            <>
+              <label
+                tabIndex={0}
+                className="btn btn-ghost btn-circle avatar mr-2"
+              >
+                <div className="w-8  lg:w-10 rounded-full">
+                  <img src={user.photoURL} data-aos="fade-down" />
+                </div>
+              </label>
+              <div>
+                <h1
+                  className={`text-sm md:text-xl lg:text-xl mr-2 ${
+                    themeMode ? "text-white" : ""
+                  }`}
+                  data-aos="fade-down"
+                >
+                  {user.displayName}
+                </h1>
+              </div>
+            </>
+          )}
           {themeMode ? (
             <BsFillSunFill
               onClick={() => setThemeMode(!themeMode)}

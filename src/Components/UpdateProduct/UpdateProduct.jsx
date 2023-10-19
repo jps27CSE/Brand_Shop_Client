@@ -25,7 +25,6 @@ const UpdateProduct = () => {
     const brand = form.brand.value;
     const type = form.type.value;
     const price = form.price.value;
-    const description = form.description.value;
     const rating = form.rating.value;
 
     const smallerBrand = brand.toLowerCase();
@@ -36,7 +35,6 @@ const UpdateProduct = () => {
       brand: smallerBrand,
       type,
       price,
-      description,
       rating,
     };
 
@@ -140,19 +138,7 @@ const UpdateProduct = () => {
                   required
                 />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Short Description</span>
-                </label>
-                <textarea
-                  type="text"
-                  defaultValue={product?.description}
-                  name="description"
-                  placeholder="Description"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Rating</span>
@@ -163,6 +149,7 @@ const UpdateProduct = () => {
                   name="rating"
                   placeholder="Rating"
                   className="input input-bordered"
+                  max={10}
                   required
                 />
               </div>

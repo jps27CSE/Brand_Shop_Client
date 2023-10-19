@@ -31,6 +31,7 @@ const Register = () => {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const photo = e.target.photo.value;
     if (password.length < 6) {
       return toast.error("Password must be at least 6 characters");
     } else if (!/[A-Z]/.test(password)) {
@@ -48,6 +49,7 @@ const Register = () => {
         console.log(result);
         updateProfile(result.user, {
           displayName: name,
+          photoURL: photo,
         });
         toast.success(`Registered successfully........
         Email : ${result.user.email} 
@@ -122,6 +124,19 @@ const Register = () => {
                   />
                 </div>
 
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo URL</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="photo"
+                    placeholder="photo URL"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Register</button>
                 </div>
@@ -134,6 +149,7 @@ const Register = () => {
                   </Link>
                 </p>
               </form>
+
               <div className="flex mx-auto p-4">
                 <button onClick={handleGoogleLogin} className="btn btn-ghost">
                   <FcGoogle className="text-2xl" />
