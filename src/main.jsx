@@ -50,7 +50,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <IndividualProductDetails />,
+        element: (
+          <PrivateRoute>
+            <IndividualProductDetails />,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateProduct/:id",

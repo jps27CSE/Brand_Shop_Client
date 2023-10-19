@@ -14,7 +14,7 @@ const BrandsDetails = () => {
 
   return (
     <div className="max-w-7xl mx-auto ">
-      <div className="  grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5  ml-[-10px] md:ml-32 lg:ml-0 mb-5 ">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5  ml-[15px] md:ml-40 lg:ml-0 mb-5 ">
         {brands.map((brand) => (
           <Link key={brand.id} to={`/brand/${brand.brand_name}`}>
             <div
@@ -30,7 +30,11 @@ const BrandsDetails = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="font-bold text-4xl text-center text-cyan-700">
+                <h2
+                  className={`font-bold text-4xl text-center  ${
+                    themeMode ? "text-white" : "text-cyan-700"
+                  }`}
+                >
                   {brand.brand_name}
                 </h2>
               </div>
