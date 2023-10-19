@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IndiProducts from "./IndiProducts/IndiProducts";
+import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 
 const IndividualBrand = () => {
   const [data, setData] = useState([]);
   const [IndiProduct, setIndiProduct] = useState([]);
   const params = useParams();
-
+  const { themeMode } = useContext(AuthContext);
   useEffect(() => {
     fetch(`http://localhost:3000/brand/${params.id.toLowerCase()}`)
       .then((res) => res.json())
@@ -60,7 +61,11 @@ const IndividualBrand = () => {
         ))}
       </div>
 
-      <h1 className="text-4xl font-bold text-center mt-5">
+      <h1
+        className={`text-4xl font-bold text-center mt-5  ${
+          themeMode ? "text-white" : ""
+        } `}
+      >
         Welcome To <span className="text-[#64CCC5]">{params.id}</span> EcoSystem
       </h1>
 

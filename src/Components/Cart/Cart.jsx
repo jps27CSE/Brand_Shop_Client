@@ -4,7 +4,7 @@ import CartItems from "./CartItems/CartItems";
 import { toast } from "react-toastify";
 
 const Cart = () => {
-  const { user } = useContext(AuthContext);
+  const { user, themeMode } = useContext(AuthContext);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,9 @@ const Cart = () => {
 
   return (
     <div className="max-w-7xl mx-auto mb-80 mt-28">
-      <h1 className="text-2xl font-bold">{cartItems?.length} Cart Items</h1>
+      <h1 className={`text-2xl font-bold ${themeMode ? "text-white" : ""}`}>
+        {cartItems?.length} Cart Items
+      </h1>
 
       <div className="grid  lg:grid-cols-2">
         <div className="col-span-1">
@@ -32,7 +34,13 @@ const Cart = () => {
         </div>
         <div className="col-span-1">
           <div className="shadow-2xl">
-            <h1 className="text-2xl font-bold mb-2">Ready For Purchase</h1>
+            <h1
+              className={`text-2xl font-bold mb-2 ${
+                themeMode ? "text-white" : ""
+              }`}
+            >
+              Ready For Purchase
+            </h1>
             <button
               onClick={() => toast.success("Thanks For Purchase")}
               className="btn btn-primary w-full"

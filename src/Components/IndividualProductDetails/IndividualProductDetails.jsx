@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const IndividualProductDetails = () => {
   const [fetchData, setFetchData] = useState(null);
-  const { user } = useContext(AuthContext);
+  const { user, themeMode } = useContext(AuthContext);
   const params = useParams();
 
   useEffect(() => {
@@ -53,9 +53,17 @@ const IndividualProductDetails = () => {
           <img className="w-96 rounded-lg" src={fetchData?.image} alt="" />
         </div>
 
-        <div className="shadow-lg rounded-lg col-span-2 p-5">
-          <h1 className=" text-2xl md:text-4xl lg:text-4xl">
-            <span className="font-bold">Product Name:</span> {fetchData?.name}
+        <div
+          className={`shadow-lg rounded-lg col-span-2 p-5 ${
+            themeMode ? "bg-white" : ""
+          }   `}
+        >
+          <h1
+            className="text-2xl md:text-4xl lg:text-4xl 
+          "
+          >
+            <span className="font-bold  ">Product Name:</span>
+            {fetchData?.name}
           </h1>
           <h1 className="text-xl mt-5">
             <span className="font-bold">Brand:</span> {fetchData?.brand}

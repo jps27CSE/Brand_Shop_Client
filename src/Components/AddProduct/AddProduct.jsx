@@ -1,7 +1,10 @@
 import { toast } from "react-toastify";
 import addProductPhoto from "../../assets/addproduct.png";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useContext } from "react";
 
 const AddProduct = () => {
+  const { themeMode } = useContext(AuthContext);
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -47,7 +50,11 @@ const AddProduct = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <div>
-        <h1 className="text-4xl font-bold text-center mt-5 mb-2">
+        <h1
+          className={`text-4xl font-bold text-center mt-5 mb-2 ${
+            themeMode ? "text-white" : ""
+          } `}
+        >
           Add Product
         </h1>
       </div>

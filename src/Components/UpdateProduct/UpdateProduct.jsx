@@ -1,9 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import UpdateProductLogo from "../../assets/updateProduct.png";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const UpdateProduct = () => {
   const [product, setProduct] = useState(null);
+  const { themeMode } = useContext(AuthContext);
   const params = useParams();
   const navigate = useNavigate();
 
@@ -58,7 +60,11 @@ const UpdateProduct = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <div>
-        <h1 className="text-4xl font-bold text-center mt-5 mb-2">
+        <h1
+          className={`text-4xl font-bold text-center mt-5 mb-2 ${
+            themeMode ? "text-white" : ""
+          } `}
+        >
           Update Product
         </h1>
       </div>
