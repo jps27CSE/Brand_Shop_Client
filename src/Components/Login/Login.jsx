@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { loginUser, googleLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin, themeMode } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -50,8 +50,12 @@ const Login = () => {
       <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
+            <h1
+              className={`text-5xl font-bold ${themeMode ? "text-white" : ""}`}
+            >
+              Login now!
+            </h1>
+            <p className={`py-6 ${themeMode ? "text-white" : ""}`}>
               Welcome back! Please sign in to access your account. If you are
               new here, you can create an account quickly and easily. We are
               here to make your tech experience even better.

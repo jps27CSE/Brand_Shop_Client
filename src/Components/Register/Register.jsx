@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 const Register = () => {
-  const { registerUser, googleLogin } = useContext(AuthContext);
+  const { registerUser, googleLogin, themeMode } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,8 +69,14 @@ const Register = () => {
         <div className="hero min-h-screen max-w-6xl mx-auto ">
           <div className="hero-content flex-col lg:flex-row">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">Register now!</h1>
-              <p className="py-6">
+              <h1
+                className={`text-5xl font-bold ${
+                  themeMode ? "text-white" : ""
+                }`}
+              >
+                Register now!
+              </h1>
+              <p className={`py-6 ${themeMode ? "text-white" : ""}`}>
                 Ready to get started? Register now to unlock the world of
                 cutting-edge technology and electronics. Enjoy exclusive deals,
                 personalized recommendations, and a seamless shopping
