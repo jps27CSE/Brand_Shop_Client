@@ -1,8 +1,12 @@
-# React + Vite
+# ElectroCart Shopping Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Link : https://brandshop-b6378.web.app
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features:
+- Login/Register
+- Login with Google
+- Add Products
+- Update Products
+- Dark Mode
+- Add and Delete into Cart
+- Brand Category
