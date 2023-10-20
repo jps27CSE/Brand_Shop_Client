@@ -30,13 +30,16 @@ const AddProduct = () => {
       rating,
     };
 
-    fetch("http://localhost:3000/addProduct", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(NewProduct),
-    })
+    fetch(
+      "https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/addProduct",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(NewProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged === true) {

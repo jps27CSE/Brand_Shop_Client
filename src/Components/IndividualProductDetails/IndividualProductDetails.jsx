@@ -9,7 +9,9 @@ const IndividualProductDetails = () => {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/product/${params.id}`)
+    fetch(
+      `https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/product/${params.id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -31,13 +33,16 @@ const IndividualProductDetails = () => {
       rating: fetchData.rating,
     };
 
-    fetch(`http://localhost:3000/cart`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(sendingData),
-    })
+    fetch(
+      `https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/cart`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(sendingData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged === true) {

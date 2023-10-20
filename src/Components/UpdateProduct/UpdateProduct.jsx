@@ -10,7 +10,9 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/product/${params.id}`)
+    fetch(
+      `https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/product/${params.id}`
+    )
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [params.id]);
@@ -38,13 +40,16 @@ const UpdateProduct = () => {
       rating,
     };
 
-    fetch(`http://localhost:3000/update/${params.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(UpdateProduct),
-    })
+    fetch(
+      `https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/update/${params.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(UpdateProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged === true) {

@@ -8,7 +8,9 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/cart/${user.email}`)
+    fetch(
+      `https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/cart/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setCartItems(data);

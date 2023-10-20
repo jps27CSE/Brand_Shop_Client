@@ -6,7 +6,9 @@ const AllProducts = () => {
   const [allData, setAllData] = useState([]);
   const { themeMode } = useContext(AuthContext);
   useEffect(() => {
-    fetch("http://localhost:3000/allProducts")
+    fetch(
+      "https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/allProducts"
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {

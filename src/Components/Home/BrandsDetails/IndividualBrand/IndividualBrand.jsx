@@ -9,7 +9,9 @@ const IndividualBrand = () => {
   const params = useParams();
   const { themeMode } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:3000/brand/${params.id.toLowerCase()}`)
+    fetch(
+      `https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/brand/${params.id.toLowerCase()}`
+    )
       .then((res) => res.json())
       .then((item) => setIndiProduct(item));
   }, [params.id]);
@@ -70,7 +72,13 @@ const IndividualBrand = () => {
 
       <div>
         {IndiProduct.length > 0 && (
-          <h1 className="text-4xl font-bold  mt-10">Products</h1>
+          <h1
+            className={`text-4xl font-bold  mt-10  ${
+              themeMode ? "text-white" : ""
+            }`}
+          >
+            Products
+          </h1>
         )}
       </div>
       {IndiProduct.length === 0 ? (

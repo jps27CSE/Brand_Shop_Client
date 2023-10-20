@@ -3,9 +3,12 @@ import { toast } from "react-toastify";
 
 const CartItems = ({ cart, cartItems, setCartItems }) => {
   const handleClick = () => {
-    fetch(`http://localhost:3000/cart/${cart._id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://b8a10-brandshop-server-side-jps27-g9mnai010-jps27cses-projects.vercel.app/cart/${cart._id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
